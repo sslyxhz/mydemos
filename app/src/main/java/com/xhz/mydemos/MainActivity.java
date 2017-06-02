@@ -2,6 +2,7 @@ package com.xhz.mydemos;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerView = (RecyclerView)this.findViewById(R.id.books_recycler_view);
         mBooksAdapter = new BooksAdapter(mBookInfoList);
         mRecyclerView.setAdapter(mBooksAdapter);
+        mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
+        mBooksAdapter.notifyDataSetChanged();
     }
 
     private void initData(){
@@ -41,11 +44,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private class BooksHolder extends RecyclerView.ViewHolder{
+        private BookInfo mBookInfo;
+        public TextView mIdTextView;
         public TextView mNameTextView;
 
         public BooksHolder(View itemView){
             super(itemView);
-            mNameTextView = (TextView) itemView;
+            mIdTextView = (TextView) itemView.findViewById(R.id.list_item_bookinfo_id_text_view);
+            mNameTextView = (TextView) itemView.findViewById(R.id.list_item_bookinfo_name_text_view);
+        }
+        public void bindBook(BookInfo bookInfo){
+            mBookInfo = bookInfo;
+            mIdTextView.setText(""+mBookInfo.getId());
+            mNameTextView.setText(mBookInfo.getName());
         }
     }
 
@@ -60,14 +71,14 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public BooksHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             LayoutInflater layoutInflater = LayoutInflater.from(MainActivity.this);
-            View view = layoutInflater.inflate(android.R.layout.simple_list_item_1,parent,false);
+            View view = layoutInflater.inflate(R.layout.list_item_book,parent,false);
             return new BooksHolder(view);
         }
 
         @Override
         public void onBindViewHolder(BooksHolder holder, int position) {
             BookInfo bookInfo = mBooks.get(position);
-            holder.mNameTextView.setText(bookInfo.getName());
+            holder.bindBook(bookInfo);
         }
 
         @Override
