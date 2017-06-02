@@ -1,4 +1,4 @@
-package com.xhz.mydemos;
+package com.xhz.mydemos.recyclerview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -10,6 +10,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.xhz.mydemos.data.BookInfo;
+import com.xhz.mydemos.R;
 
 import java.util.ArrayList;
 import java.util.List;

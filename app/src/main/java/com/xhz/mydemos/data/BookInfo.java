@@ -1,4 +1,4 @@
-package com.xhz.mydemos;
+package com.xhz.mydemos.data;
 
 /**
  * Created by xh.zeng on 2017/6/2.
