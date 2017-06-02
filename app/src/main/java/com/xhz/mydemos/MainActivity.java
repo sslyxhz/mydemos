@@ -34,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         mFunctions = new ArrayList<>();
         mFunctions.add("Test");
         mFunctions.add("WebView");
+        mFunctions.add("Animation");
 
         mFunctionsAdapter = new FunctionsAdapter(mFunctions);
     }
@@ -59,6 +60,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, TestActivity.class));
                     } else if("WebView".equals(mFunctionName)){
                         startActivity(new Intent(MainActivity.this, WebViewActivity.class));
+                    } else if("Animation".equals(mFunctionName)){
+                        startActivity(new Intent(MainActivity.this, AnimationActivity.class));
                     } else{
                         Toast.makeText(MainActivity.this, "Miss:"+mFunctionName, Toast.LENGTH_SHORT).show();
                     }
