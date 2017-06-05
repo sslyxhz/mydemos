@@ -22,6 +22,11 @@ add_library( # Sets the name of the library.
 # Specifies a path to native header files.
 include_directories(src/main/jni/include/)
 
+add_library(
+             hellojni
+             SHARED
+             src/main/jni/hellojni.cpp)
+
 # Searches for a specified prebuilt library and stores the path as a
 # variable. Because CMake includes system libraries in the search path by
 # default, you only need to specify the name of the public NDK library
