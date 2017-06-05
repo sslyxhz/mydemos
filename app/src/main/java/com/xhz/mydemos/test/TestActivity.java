@@ -21,6 +21,13 @@ public class TestActivity extends AppCompatActivity {
 
         mTvTestTitle = (TextView) this.findViewById(R.id.tvTestTitle);
         mTvTestTitle.setText("This is the test title.");
+        mTvTestTitle.setText(stringFromJNI());
+    }
+
+    public native String stringFromJNI();
+
+    static{
+        System.loadLibrary("native-lib");
     }
 
 }
