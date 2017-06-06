@@ -11,6 +11,7 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xhz.mydemos.camera.CameraActivity;
 import com.xhz.mydemos.test.TestActivity;
 
 import java.util.ArrayList;
@@ -35,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         mFunctions.add("Test");
         mFunctions.add("WebView");
         mFunctions.add("Animation");
+        mFunctions.add("Camera");
 
         mFunctionsAdapter = new FunctionsAdapter(mFunctions);
     }
@@ -62,6 +64,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, WebViewActivity.class));
                     } else if("Animation".equals(mFunctionName)){
                         startActivity(new Intent(MainActivity.this, AnimationActivity.class));
+                    } else if("Camera".equals(mFunctionName)){
+                        startActivity(new Intent(MainActivity.this, CameraActivity.class));
                     } else{
                         Toast.makeText(MainActivity.this, "Miss:"+mFunctionName, Toast.LENGTH_SHORT).show();
                     }

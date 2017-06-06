@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <TextView
+        android:id="@+id/tv_camera_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Camera Test"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/iv_camera_picture"
+        android:contentDescription="@string/app_name"
+        />
+
+</LinearLayout>
