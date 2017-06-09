@@ -21,13 +21,11 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".DemoIndex">
-        </activity>
         <activity android:name=".test.TestActivity">
         </activity>
-        <activity android:name=".WebViewActivity">
+        <activity android:name=".webview.WebViewActivity">
         </activity>
-        <activity android:name=".AnimationActivity">
+        <activity android:name=".animation.AnimationActivity">
         </activity>
         <activity android:name=".camera.CameraActivity">
         </activity>

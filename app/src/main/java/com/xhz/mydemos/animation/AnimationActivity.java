@@ -1,4 +1,4 @@
-package com.xhz.mydemos;
+package com.xhz.mydemos.animation;
 
 import android.animation.ArgbEvaluator;
 import android.animation.ObjectAnimator;
@@ -8,6 +8,8 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.animation.AccelerateInterpolator;
+
+import com.xhz.mydemos.R;
 
 /**
  * Created by xh.zeng on 2017/6/2.

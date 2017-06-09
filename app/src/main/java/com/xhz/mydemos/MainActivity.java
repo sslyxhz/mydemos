@@ -11,8 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.xhz.mydemos.animation.AnimationActivity;
 import com.xhz.mydemos.camera.CameraActivity;
 import com.xhz.mydemos.test.TestActivity;
+import com.xhz.mydemos.webview.WebViewActivity;
 
 import java.util.ArrayList;
 import java.util.List;

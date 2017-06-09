@@ -1,4 +1,4 @@
-package com.xhz.mydemos;
+package com.xhz.mydemos.webview;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -8,6 +8,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.xhz.mydemos.R;
+import com.xhz.mydemos.nanohttpd.HelloServer;
+
+import java.io.IOException;
+
+import fi.iki.elonen.NanoHTTPD;
 
 /**
  * Created by xh.zeng on 2017/6/2.
@@ -30,6 +35,15 @@ public class WebViewActivity extends AppCompatActivity {
                 return false;
             }
         });
-        mWebView.loadUrl("http://www.baidu.com/");
+
+        final String url = "http://localhost:8080/";
+        HelloServer server;
+        try {
+            server = new HelloServer(8080);
+            server.start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        mWebView.loadUrl(url);
     }
 }
