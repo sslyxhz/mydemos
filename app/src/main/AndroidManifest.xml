@@ -33,6 +33,8 @@
         </activity>
         <activity android:name=".draggablepanel.DraggableViewActivity">
         </activity>
+        <activity android:name=".zxing.ZxingActivity">
+        </activity>
     </application>
 
 </manifest>

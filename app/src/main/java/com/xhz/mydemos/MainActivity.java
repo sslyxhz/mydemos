@@ -17,6 +17,7 @@ import com.xhz.mydemos.draggablepanel.DraggablePanelActivity;
 import com.xhz.mydemos.draggablepanel.DraggableViewActivity;
 import com.xhz.mydemos.test.TestActivity;
 import com.xhz.mydemos.webview.WebViewActivity;
+import com.xhz.mydemos.zxing.ZxingActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
         mFunctions.add("Camera");
         mFunctions.add("DraggablePanel");
         mFunctions.add("DraggableView");
+        mFunctions.add("Zxing");
 
         mFunctionsAdapter = new FunctionsAdapter(mFunctions);
     }
@@ -76,6 +78,8 @@ public class MainActivity extends AppCompatActivity {
                         startActivity(new Intent(MainActivity.this, DraggablePanelActivity.class));
                     } else if("DraggableView".equals(mFunctionName)){
                         startActivity(new Intent(MainActivity.this, DraggableViewActivity.class));
+                    } else if("Zxing".equals(mFunctionName)){
+                        startActivity(new Intent(MainActivity.this, ZxingActivity.class));
                     } else{
                         Toast.makeText(MainActivity.this, "Miss:"+mFunctionName, Toast.LENGTH_SHORT).show();
                     }
