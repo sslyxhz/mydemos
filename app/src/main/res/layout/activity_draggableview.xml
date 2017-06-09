@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" >
+
+    <ListView
+        android:id="@+id/mainListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Draggable View -->
+    <com.github.pedrovgs.DraggableView
+        xmlns:draggable_view="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/draggable_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        draggable_view:bottom_view_id="@+id/secondListView"
+        draggable_view:top_view_id="@+id/image"
+        draggable_view:top_view_margin_bottom="20dip"
+        draggable_view:top_view_margin_right="20dip"
+        draggable_view:top_view_x_scale_factor="2.0"
+        draggable_view:top_view_y_scale_factor="2.0" >
+
+        <ListView
+            android:id="@+id/secondListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/image"
+            android:background="#EF5350" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="match_parent"
+            android:layout_height="200dip"
+            android:layout_alignParentTop="true"
+            android:background="#42A5F5"
+            android:src="@mipmap/ic_launcher" />
+
+    </com.github.pedrovgs.DraggableView>
+
+</RelativeLayout>

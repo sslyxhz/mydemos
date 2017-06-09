@@ -11,10 +11,10 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.github.pedrovgs.DraggablePanel;
 import com.xhz.mydemos.animation.AnimationActivity;
 import com.xhz.mydemos.camera.CameraActivity;
-import com.xhz.mydemos.draggablepanel.DraggableActivity;
+import com.xhz.mydemos.draggablepanel.DraggablePanelActivity;
+import com.xhz.mydemos.draggablepanel.DraggableViewActivity;
 import com.xhz.mydemos.test.TestActivity;
 import com.xhz.mydemos.webview.WebViewActivity;
 
@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         mFunctions.add("Animation");
         mFunctions.add("Camera");
         mFunctions.add("DraggablePanel");
+        mFunctions.add("DraggableView");
 
         mFunctionsAdapter = new FunctionsAdapter(mFunctions);
     }
@@ -72,7 +73,9 @@ public class MainActivity extends AppCompatActivity {
                     } else if("Camera".equals(mFunctionName)){
                         startActivity(new Intent(MainActivity.this, CameraActivity.class));
                     } else if("DraggablePanel".equals(mFunctionName)){
-                        startActivity(new Intent(MainActivity.this, DraggableActivity.class));
+                        startActivity(new Intent(MainActivity.this, DraggablePanelActivity.class));
+                    } else if("DraggableView".equals(mFunctionName)){
+                        startActivity(new Intent(MainActivity.this, DraggableViewActivity.class));
                     } else{
                         Toast.makeText(MainActivity.this, "Miss:"+mFunctionName, Toast.LENGTH_SHORT).show();
                     }
