@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:draggable_panel="http://schemas.android.com/apk/res-auto"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent">
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@mipmap/ic_launcher" />
+
+    <com.github.pedrovgs.DraggablePanel
+        android:id="@+id/draggable_panel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        draggable_panel:enable_horizontal_alpha_effect="false"
+        draggable_panel:top_fragment_height="200dip"
+        draggable_panel:top_fragment_margin_bottom="20dip"
+        draggable_panel:top_fragment_margin_right="20dip"
+        draggable_panel:x_scale_factor="2.3"
+        draggable_panel:y_scale_factor="2.3">
+
+    </com.github.pedrovgs.DraggablePanel>
+</FrameLayout >
