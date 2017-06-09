@@ -21,7 +21,13 @@ public class HelloServer extends NanoHTTPD{
     public Response serve(IHTTPSession session) {
         Method method = session.getMethod();
         String uri = session.getUri();
-        HelloServer.LOG.info(method + " '" + uri + "' ");
+        HelloServer.LOG.info("method:"+method);
+        HelloServer.LOG.info("uri:"+uri);
+        HelloServer.LOG.info("Parameters:"+session.getParameters());
+        HelloServer.LOG.info("Params:"+session.getParms());
+        HelloServer.LOG.info("RemoteHostName:"+session.getRemoteHostName());
+        HelloServer.LOG.info("RemoteIpAddress:"+session.getRemoteIpAddress());
+        HelloServer.LOG.info("ParameterString:"+session.getQueryParameterString());
 
         String msg = "<html><body><h1>Hello server</h1>\n";
         Map<String, String> parms = session.getParms();
