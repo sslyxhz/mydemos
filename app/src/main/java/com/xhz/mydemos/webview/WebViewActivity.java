@@ -28,6 +28,9 @@ public class WebViewActivity extends AppCompatActivity {
         setContentView(R.layout.activity_webview);
         mWebView = (WebView) this.findViewById(R.id.fragment_webview_container);
 
+        // add by xhz for : Cannot call determinedVisibility() - never saw a connection for the pid
+        mWebView.getSettings().setJavaScriptEnabled(true);
+        mWebView.getSettings().setDomStorageEnabled(true);
         mWebView.setWebViewClient(new WebViewClient(){
 
             @Override
@@ -36,6 +39,9 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
+    }
+
+    private void testHttpdServer() {
         final String url = "http://localhost:8080/";
         HelloServer server;
         try {
