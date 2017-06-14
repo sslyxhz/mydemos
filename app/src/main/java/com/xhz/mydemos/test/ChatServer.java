@@ -23,6 +23,7 @@ public class ChatServer extends WebSocketServer {
 
     public ChatServer( int port ) throws UnknownHostException {
         super( new InetSocketAddress( port ) );
+
     }
 
     public ChatServer( InetSocketAddress address ) {
@@ -31,7 +32,7 @@ public class ChatServer extends WebSocketServer {
 
     @Override
     public void onOpen( WebSocket conn, ClientHandshake handshake ) {
-        this.sendToAll( "new connection: " + handshake.getResourceDescriptor() );
+//        this.sendToAll( "Server open on : " + handshake.getResourceDescriptor() );
         System.out.println( conn.getRemoteSocketAddress().getAddress().getHostAddress() + " entered the room!" );
     }
 
@@ -43,21 +44,24 @@ public class ChatServer extends WebSocketServer {
 
     @Override
     public void onMessage( WebSocket conn, String message ) {
-//        this.sendToAll( message );
         System.out.println( conn + ": " + message );
+//        conn.send("Time:"+System.currentTimeMillis());
     }
 
     @Override
     public void onFragment( WebSocket conn, Framedata fragment ) {
-        System.out.println( "received fragment: " + fragment );
+        System.out.println( "Server received fragment: " + fragment );
     }
 
     public static void main( String[] args ) throws InterruptedException , IOException {
         WebSocketImpl.DEBUG = false;
-        int port = 8887; // 843 flash policy port
-        ChatServer s = new ChatServer( port );
+        int port = 10086; // 843 flash policy port
+//        ChatServer s = new ChatServer( port );
+        ChatServer s = new ChatServer( new InetSocketAddress("172.25.102.172", 8887) );
         s.start();
-        System.out.println( "ChatServer started on port: " + s.getPort() );
+        //  172.25.102.172
+        System.out.println( "Server started on address: " + s.getAddress());
+        System.out.println( "Server started on port: " + s.getPort() );
 
         BufferedReader sysin = new BufferedReader( new InputStreamReader( System.in ) );
         while ( true ) {

@@ -5,14 +5,20 @@ import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.xhz.mydemos.R;
+import com.xhz.mydemos.test.ChatServer;
 import com.xys.libzxing.zxing.activity.CaptureActivity;
 import com.xys.libzxing.zxing.encoding.EncodingUtils;
+
+import org.java_websocket.WebSocketImpl;
+
+import java.net.UnknownHostException;
 
 /**
  * Created by xh.zeng on 2017/6/9.
@@ -48,11 +54,26 @@ public class ZxingActivity extends AppCompatActivity {
         mBtnGenerate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Bitmap qrCode = EncodingUtils.createQRCode("视讯，生成二维码",900,900,null);
+                Bitmap qrCode = EncodingUtils.createQRCode("ws://172.25.102.172:8887",900,900,null);
                 mIvQrCode.setImageBitmap(qrCode);
             }
         });
 
+        test();
+    }
+
+    private void test() {
+        WebSocketImpl.DEBUG = false;
+        int port = 8887; // 843 flash policy port
+        ChatServer s = null;
+        try {
+            s = new ChatServer( port );
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+        s.start();
+        Log.d("ZxingActivity","ChatServer started on address: " +s.getAddress());
+        Log.d("ZxingActivity","ChatServer started on port: " + s.getPort());
     }
 
     @Override

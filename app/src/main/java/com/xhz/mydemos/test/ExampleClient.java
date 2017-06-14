@@ -57,7 +57,9 @@ public class ExampleClient extends WebSocketClient {
     }
 
     public static void main( String[] args ) throws URISyntaxException, IOException {
-        ExampleClient c = new ExampleClient( new URI( "ws://localhost:8887" ), new Draft_6455() ); // more about drafts here: http://github.com/TooTallNate/Java-WebSocket/wiki/Drafts
+//        ExampleClient c = new ExampleClient( new URI( "ws://localhost:8887" ), new Draft_6455() );
+        ExampleClient c = new ExampleClient( new URI( "ws://172.25.120.169:8887" ), new Draft_6455() );
+        // more about drafts here: http://github.com/TooTallNate/Java-WebSocket/wiki/Drafts
         c.connect();
 
         BufferedReader sysin = new BufferedReader( new InputStreamReader( System.in ) );

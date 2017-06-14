@@ -8,11 +8,9 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
 import com.xhz.mydemos.R;
-import com.xhz.mydemos.nanohttpd.HelloServer;
+import com.xhz.mydemos.nanohttpd.QrServer;
 
 import java.io.IOException;
-
-import fi.iki.elonen.NanoHTTPD;
 
 /**
  * Created by xh.zeng on 2017/6/2.
@@ -39,14 +37,17 @@ public class WebViewActivity extends AppCompatActivity {
             }
         });
 
+        testHttpdServer();
     }
 
+    public static final String ROOT_DOCUMENT_PATH = "/";
     private void testHttpdServer() {
-        final String url = "http://localhost:8080/";
-        HelloServer server;
+        final String url = "http://localhost:8080/qrcode";
+        QrServer server;
         try {
-            server = new HelloServer(8080);
-            server.start(NanoHTTPD.SOCKET_READ_TIMEOUT, false);
+            server = new QrServer(8080, ROOT_DOCUMENT_PATH, this);
+            server.addQrCodeHandler("/qrcode");
+            server.start();
         } catch (IOException e) {
             e.printStackTrace();
         }
